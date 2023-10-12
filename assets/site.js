@@ -104,3 +104,13 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// When less.js finishes loading, call setBodyWrapperMarginTop() to get a correct margin.
+// In production this has no effect as less.js is only used in development.
+if (typeof less !== 'undefined' && less.pageLoadFinished) {
+    less.pageLoadFinished.then(
+        function() {
+            setBodyWrapperMarginTop();
+        }
+    );
+}
