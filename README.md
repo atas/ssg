@@ -2,6 +2,10 @@
 
 Harness the power of PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to juggle complex frameworks or master new templating languages. Simply fork, configure, and deploy!
 
+## Demo - Examples
+This repo's CI deploys to https://ssg-test.atasasmaz.com you can visit there as a demo or visit my webpage for a 
+production-environment example at https://www.atasasmaz.com which has a separate private repo forked from this repo.
+
 ## Why Ata's SSG?
 
 * **Simplicity with PHP**: PHP stands as a robust templating and server-side language, eliminating the need to learn new templating languages.
@@ -40,15 +44,20 @@ from the simplest PHP files.
   minimal PHP in them. For CSS changes, `less` is used to generate `css` files, see `assets/styles` directory.
 8. Follow the below steps to deploy to GitHub Pages.
 
-## Using GitHub Pages as `https://username.github.io` 
+## Enabling GitHub Pages
+
+**This project uses a Custom Workflow to publish to GitHub Pages. You should select that in your settings as explained
+below and do not create another Custom Workflow.**
+
+FYI: Public repos are free, private repos require paid GitHub subscription.
+
+### Using GitHub Pages as `https://username.github.io`
 
 * Your repo name must be `username.github.io` for this to work. Username is github username, lowercase. Rename your 
   repo.
-* Public repos are free, private repos require paid GitHub subscription.  
-...
-TBA
+* Go to your repo -> Settings -> Pages (on the left) and select GitHub Actions option in the Source select box.
 
-## Using GitHub Pages through custom domain
+### Using GitHub Pages through custom domain
 
 * Your repo name could be anything
 * Go to your repo -> Settings -> Pages (on the left) and select GitHub Actions option in the Source select box.
@@ -70,13 +79,18 @@ AAAA 2606:50c0:8000::153
     you can also add `your-github-username.github.io` as a CNAME record to your DNS records instead and still have a 
     custom domain, instead of the IP addresses above.
 
-## Local Development without build process
+## Local Development Environment in a PHP server (Nginx or Apache)
 You can use either apache with php or nginx with php-fpm locally to run your site. When run locally, there is no 
-build process, it's just PHP working server side.
+build process, it's just PHP working server side. I won't dive into setting those up here.
 
-For Nginx, use the config file in `system/workflow-image/nginx.conf` and follow the comments.
-For local Apache, the .htaccess should be enough.
+### For Local Nginx
+use the config file in `system/workflow-image/nginx.conf` and follow the comments.
+
+### For Local Apache
+For local Apache, the .htaccess should be enough but also need to configure your virtual host in apache 
+configuration for the `local_hostname` domain name set in `config.json`.
 
 Ensure local hostname matches the `local_hostname` in `config.json` file. Add it to hosts file at `/etc/hosts` if 
-necessary. 
+necessary with IP `127.0.0.1`
+
 Locally, http works fine, https is used in build process with self-signed cert to generate URLs correctly.
