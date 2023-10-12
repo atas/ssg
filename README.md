@@ -49,7 +49,7 @@ from the simplest PHP files.
 **This project uses a Custom Workflow to publish to GitHub Pages. You should select that in your settings as explained
 below and do not create another Custom Workflow.**
 
-FYI: Public repos are free, private repos require paid GitHub subscription.
+FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription.
 
 ### Using GitHub Pages as `https://username.github.io`
 
