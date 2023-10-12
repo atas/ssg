@@ -28,7 +28,11 @@ from the simplest PHP files.
 
 ## How to Use
 
-1. Fork this repository.
+FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription.
+
+1. Fork this repository and **name the fork** as `your-github-username.github.io` if you want to use GitHub Pages as 
+   `https://your-github-username.github.io` or name it anything else if you want to use a custom domain.
+
 2. Update the `config.json` file to your liking.
 3. Update images `favicon-96.jpg` `site-icon.jpg` `site-icon-big.jpg` at `./assets/images`
 4. Add your pages to ./pages directory in Markdown format. Page URLs are derived from the file name. `my-post.md`
@@ -46,21 +50,22 @@ from the simplest PHP files.
 
 ## Enabling GitHub Pages
 
-**This project uses a Custom Workflow to publish to GitHub Pages. You should select that in your settings as explained
-below and do not create another Custom Workflow.**
-
-FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription.
+1. Go to your repo -> Settings -> Pages (on the left) and select `GitHub Actions` option in the `Source` select box, 
+   change it from `Deploy from a branch`.
+2. Do not select Jekyll or static site options below, don't click on them.
+3. Go to Actions tab of your repo, beside `Code` and `Pull requests`.
+4. **Enable the Workflow**.
+5. Select Deploy Website from the left column.
+6. Click `Run Workflow` button on the right and click `Run Workflow` again.
+7. Now Select `All workflows` on the left column and see the progress of the build process.
 
 ### Using GitHub Pages as `https://username.github.io`
 
-* Your repo name must be `username.github.io` for this to work. Username is github username, lowercase. Rename your 
-  repo.
-* Go to your repo -> Settings -> Pages (on the left) and select GitHub Actions option in the Source select box.
+Nothing else to do, your website should be alive.
 
 ### Using GitHub Pages through custom domain
 
-* Your repo name could be anything
-* Go to your repo -> Settings -> Pages (on the left) and select GitHub Actions option in the Source select box.
+* Go to `your repo -> Settings -> Pages` (on the left) and select GitHub Actions option in the Source select box.
 * Add a custom domain below, anything you want, you will need to access to its DNS records.
 * Add below A and AAAA records for your domain name or subdomain. Official docs are here: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
 
@@ -82,6 +87,9 @@ AAAA 2606:50c0:8000::153
 ## Local Development Environment in a PHP server (Nginx or Apache)
 You can use either apache with php or nginx with php-fpm locally to run your site. When run locally, there is no 
 build process, it's just PHP working server side. I won't dive into setting those up here.
+
+Do `composer update` locally to install dependencies before running locally. Build process does this automatically 
+but you need to do manually for local development.
 
 ### For Local Nginx
 use the config file in `system/workflow-image/nginx.conf` and follow the comments.
