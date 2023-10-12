@@ -49,8 +49,26 @@ from the simplest PHP files.
 TBA
 
 ## Using GitHub Pages through custom domain
-...
-TBA
+
+* Your repo name could be anything
+* Go to your repo -> Settings -> Pages (on the left) and select GitHub Actions option in the Source select box.
+* Add a custom domain below, anything you want, you will need to access to its DNS records.
+* Add below A and AAAA records for your domain name or subdomain. Official docs are here: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
+
+_FYI: You can have multiple A and AAAA records for the same domain or subdomain name._
+```
+A 185.199.108.153
+A 185.199.109.153
+A 185.199.111.153
+A 185.199.110.153
+AAAA 2606:50c0:8003::153
+AAAA 2606:50c0:8002::153
+AAAA 2606:50c0:8001::153
+AAAA 2606:50c0:8000::153
+```
+* * If your repo name matches `your-github-username.github.io`, which you can only have one repo in this name, then 
+    you can also add `your-github-username.github.io` as a CNAME record to your DNS records instead and still have a 
+    custom domain, instead of the IP addresses above.
 
 ## Local Development without build process
 You can use either apache with php or nginx with php-fpm locally to run your site. When run locally, there is no 
