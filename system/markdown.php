@@ -2,6 +2,7 @@
 
 require_once(__DIR__."/../vendor/league/commonmark/src/GithubFlavoredMarkdownConverter.php");
 
+use League\CommonMark\Exception\CommonMarkException;
 use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
 use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
@@ -48,10 +49,10 @@ function get_md_config(): array
 /**
  * Converts a given markdown file to HTML with handy flavours and extensions.
  * @param $path
- * @return stdClass
- * @throws \League\CommonMark\Exception\CommonMarkException
+ * @return ConvertedMarkdown
+ * @throws CommonMarkException
  */
-function convert_md($path): stdClass
+function convert_markdown($path): ConvertedMarkdown
 {
     $converter = new GithubFlavoredMarkdownConverter(get_md_config());
 
@@ -64,7 +65,7 @@ function convert_md($path): stdClass
 
     $output = $converter->convert($md);
 
-    $tpl = new stdClass();
+    $tpl = new ConvertedMarkdown();
     $tpl->content = $output->getContent();
 
     if ($output instanceof RenderedContentWithFrontMatter) {

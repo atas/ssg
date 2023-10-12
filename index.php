@@ -1,26 +1,29 @@
 <?php
 
 require_once "system/bootstrap.php";
-global $og;
 
-$og->title = $tpl->meta->title ?? "";
-$og->desc = $tpl->meta->desc ?? "";
-$selectedTab = "home";
+// @var $page_meta PageMeta
+global $page_meta;
+$page_meta->selectedTab = "home";
+
 require_once 'layout/header.php';
 
-$posts = get_posts();
+$posts = get_all_posts();
 
 echo "<div id='posts'>";
 foreach ($posts as $post) {
-    echo "<article class='post'><a href='/p/$post->slug'>";
-    echo "<div class='left'>";
-    echo "<h2>$post->title</h2>";
-    echo "<div class='desc'>$post->desc</div>";
-    echo "</div>";
-    echo '<div class="right"><img src="/assets/images/right-arrow.svg" /></div>';
-    echo "</a></article>";
+    ?>
+    <article class='post'>
+        <a href='/p/<?= $post->slug ?>'>
+            <div class='left'>
+                <h2><?= $post->title ?></h2>
+                <div class='desc'><?= $post->desc ?></div>
+            </div>
+            <div class="right"><img src="/assets/images/right-arrow.svg" alt="Right arrow"/></div>
+        </a>
+    </article>
+    <?php
 }
 echo "</div>";
 
 require_once 'layout/footer.php';
-

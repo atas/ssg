@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . "/../system/layoutUtils.php";
 
-global $og, $config;
+global $page_meta, $config;
 
-$title = !isset($og->title) || strlen($og->title) == 0 ? $config->full_title : "$og->title$config->appended_title";
-$desc = !isset($og->desc) || strlen($og->desc) == 0 ? $config->site_desc : $og->desc;
+$title = !isset($page_meta->title) || strlen($page_meta->title) == 0 ? $config->full_title : "$page_meta->title$config->appended_title";
+$desc = !isset($page_meta->desc) || strlen($page_meta->desc) == 0 ? $config->site_desc : $page_meta->desc;
 
 ?>
 <!-- Built with Ata's SSG https://www.github.com/atas/ssg -->
@@ -22,7 +22,7 @@ $desc = !isset($og->desc) || strlen($og->desc) == 0 ? $config->site_desc : $og->
     <meta name="description" content="<?= $desc ?>"/>
 
     <meta property="og:url" content="<?= getCurrentFullUrl() ?>"/>
-    <meta property="og:type" content="<?= $og->type ?>"/>
+    <meta property="og:type" content="<?= $page_meta->type ?>"/>
     <meta property="og:title" content="<?= $title ?>"/>
     <meta property="og:description" content="<?= $desc ?>"/>
     <meta property="og:image" content="<?= getCurrentHostnameWithProtocol() ?>/assets/images/site-icon-big.jpg"/>
@@ -82,7 +82,7 @@ $desc = !isset($og->desc) || strlen($og->desc) == 0 ? $config->site_desc : $og->
 
     <div id="tabs">
         <div class="tabsContent">
-            <a href="/" class="<?= selectedTab("home") ?>">
+            <a href="/" class="<?= selectedTabCss("home") ?>">
                 <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <title>216242_home_icon-svg</title>
                     <style>
@@ -99,7 +99,7 @@ $desc = !isset($og->desc) || strlen($og->desc) == 0 ? $config->site_desc : $og->
                 </div>
             </a>
 
-            <a href="/about" class="<?= selectedTab("about") ?>">
+            <a href="/about" class="<?= selectedTabCss("about") ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title/>
                     <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm-.5,3A1.5,1.5,0,1,1,10,6.5,1.5,1.5,0,0,1,11.5,5ZM14,18H13a2,2,0,0,1-2-2V12a1,1,0,0,1,0-2h1a1,1,0,0,1,1,1v5h1a1,1,0,0,1,0,2Z"
                           fill="#ffffff"/>
@@ -109,7 +109,7 @@ $desc = !isset($og->desc) || strlen($og->desc) == 0 ? $config->site_desc : $og->
                 </div>
             </a>
 
-            <a href="/contact" class="<?= selectedTab("contact") ?>">
+            <a href="/contact" class="<?= selectedTabCss("contact") ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1792" viewBox="0 0 1792 1792" width="1792">
                     <path d="M1100 775q0-108-53.5-169t-147.5-61q-63 0-124 30.5t-110 84.5-79.5 137-30.5 180q0 112 53.5 173t150.5 61q96 0 176-66.5t122.5-166 42.5-203.5zm564 121q0 111-37 197t-98.5 135-131.5 74.5-145 27.5q-6 0-15.5.5t-16.5.5q-95 0-142-53-28-33-33-83-52 66-131.5 110t-173.5 44q-161 0-249.5-95.5t-88.5-269.5q0-157 66-290t179-210.5 246-77.5q87 0 155 35.5t106 99.5l2-19 11-56q1-6 5.5-12t9.5-6h118q5 0 13 11 5 5 3 16l-120 614q-5 24-5 48 0 39 12.5 52t44.5 13q28-1 57-5.5t73-24 77-50 57-89.5 24-137q0-292-174-466t-466-174q-130 0-248.5 51t-204 136.5-136.5 204-51 248.5 51 248.5 136.5 204 204 136.5 248.5 51q228 0 405-144 11-9 24-8t21 12l41 49q8 12 7 24-2 13-12 22-102 83-227.5 128t-258.5 45q-156 0-298-61t-245-164-164-245-61-298 61-298 164-245 245-164 298-61q344 0 556 212t212 556z"
                           fill="#ffffff"/>

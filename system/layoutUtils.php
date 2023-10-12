@@ -2,13 +2,13 @@
 
 /**
  * Returns the 'selected' css class if the selectedTab variable matches the given tab name. Or returns empty string.
- * @param $tab
+ * @param $tab string
  * @return string
  */
-function selectedTab($tab): string
+function selectedTabCss(string $tab): string
 {
-    global $selectedTab;
-    if ($selectedTab == $tab) {
+    global $page_meta;
+    if ($page_meta->selectedTab == $tab) {
         return "selected";
     }
     return "";

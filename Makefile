@@ -1,4 +1,7 @@
 
+# You would only need to use these if you want to build your own custom builder image.
+# Otherwise, by default the workflow uses the pre-built image from ghcr.io/atas/ssg-builder:latest
+
 build-local-image:
 	docker build system/workflow-image -t atas-ssg-builder:latest
 
