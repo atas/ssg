@@ -1,0 +1,26 @@
+
+// Mobile (can-touch)
+/*@media (hover: none) {
+}*/
+
+// Desktop (no-touch)
+@media (hover: hover) {
+
+  #posts article.post a {
+    &:hover {
+      background: rgba(@activeBgRgb, 0.05);
+    }
+  }
+
+  #tabs .tabsContent a {
+    &:hover {
+      background: #555;
+    }
+  }
+
+  .btn.white {
+    &:hover {
+      background: rgb(245, 245, 245);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "site_top_h1": "ata's ssg",
+  "site_top_about_line1": "Simple PHP-based Static Site generator",
+  "site_top_about_line2": "Supports Markdown and deployed to GitHub Pages by GitHub Actions",
+  "hostname": "ssg-test.atasasmaz.com",
+  "local_hostname": "ssg.local",
+  "email": "local-address@your-domain.com",
+  "full_title": "Ata's SSG - a Simple PHP-based SSG for GitHub Pages",
+  "appended_title": " - Ata's SSG'",
+  "site_desc": "Welcome to Ata's SSG. This is a simple PHP-based Static Site Generator that supports Markdown and deployed to GitHub Pages by GitHub Actions.",
+  "linkedin_url": "https://www.linkedin.com/in/atasasmaz",
+  "twitter_url": "https://twitter.com/AtaSasmaz",
+  "github_url": "https://github.com/atas",
+  "location": "City, Country"
+}

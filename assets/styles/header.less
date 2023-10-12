@@ -1,0 +1,210 @@
+#header {
+  background: #000;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+
+  &.scrollingDown {
+
+    .info {
+      div.shortAbout {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      img.ataImg {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .info {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    background: inherit;
+
+    #h1Wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+
+      .bashArrow {
+        margin: 10px 0 0 0;
+
+        svg {
+          width: 28px;
+          height: 100%;
+
+          path {
+            stroke: #FFFFFF;
+            stroke-width: 4px;
+          }
+        }
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 500;
+
+        a {
+          color: @accent1;
+          margin-top: 6px;
+          display: block;
+          transition: margin-top 0.5s;
+        }
+
+        @media @mobile {
+          img {
+            margin: 0 auto;
+          }
+        }
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 14px;
+        height: 21px;
+        background: @activeBg;
+        margin-left: 5px;
+        border-radius: 1px;
+        -webkit-animation: cursor 1s infinite;
+        animation: cursor 1s infinite;
+        margin-bottom: 8px;
+
+        @-webkit-keyframes cursor {
+          0% {
+            opacity: 0
+          }
+
+          50% {
+            opacity: 1
+          }
+
+          to {
+            opacity: 0
+          }
+        }
+
+        @keyframes cursor {
+          0% {
+            opacity: 0
+          }
+
+          50% {
+            opacity: 1
+          }
+
+          to {
+            opacity: 0
+          }
+        }
+      }
+    }
+
+    .ataImg {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      transition: width 0.5s, height 0.5s, border-radius 0.5s;
+      margin-bottom: 6px;
+      float: right;
+
+      @media @desktop {
+        float: right;
+        margin-top: 6px;
+      }
+      @media @mobile {
+        display: block;
+        margin-top: 6px;
+      }
+    }
+
+    .shortAbout {
+      color: #CCC;
+      padding: 5px 0 10px 0;
+      transition: height 0.5s, opacity 0.5s, padding 0.5s;
+
+      @media @mobile {
+        .br {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+#tabs {
+  margin: 0 auto;
+  width: 100%;
+  background: rgb(44, 44, 44);
+  box-shadow: #444 0px 1px 3px 0px inset, #AAA 0px 2px 2px 0px;
+
+  .tabsContent {
+    display: flex;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+
+    > a {
+      flex: 1;
+      text-align: center;
+      padding: 3px 8px;
+      color: white;
+
+      &.selected {
+        color: lighten(@activeBg, 8%);
+
+        svg path {
+          fill: lighten(@activeBg, 8%);
+        }
+      }
+
+      &.active {
+        background: @activeBg !important;
+
+        color: white !important;
+
+        svg path {
+          fill: white;
+        }
+      }
+
+
+      svg {
+        color: white;
+        width: 24px;
+        height: 24px;
+      }
+
+      .text {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.tabClicked {
+  background: @activeBg !important;
+
+  color: white !important;
+
+  svg path {
+    fill: white;
+  }
+}
+
+html.nonTouch {
+  #tabs .tabsContent > a:active {
+    .tabClicked;
+  }
+}

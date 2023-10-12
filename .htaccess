@@ -1,0 +1,21 @@
+# Turn on the rewrite engine
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# For /page to /page.php?page=page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9-]+)$ /page.php?page=$1 [L]
+
+# Rewrite /p/something to /post.php?slug=something
+RewriteRule ^p/(.*)$ /post.php?slug=$1 [L]
+
+# For extensionless PHP files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.php -f
+RewriteRule ^(.*?)/?$ $1.php [L]

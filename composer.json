@@ -1,0 +1,19 @@
+{
+  "name": "atas/ssg",
+  "description": "Ata's GitHub Pages Static Site Generator",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "atas-ssg\\github.com\\": ""
+    }
+  },
+  "require": {
+    "league/commonmark": "^2.4",
+    "ext-json": "*"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4.0"
+    }
+  }
+}

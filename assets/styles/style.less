@@ -1,0 +1,191 @@
+@mobile: ~'only screen and (max-width: 991px)';
+@desktop: ~'only screen and (min-width: 992px)';
+@media @mobile {
+  .desktop {
+    display: none !important;
+  }
+}
+
+@media @desktop {
+  .mobile {
+    display: none !important;
+  }
+}
+
+@import (css) url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
+
+@mainBg: #eeeeee;
+@accent1: #FFF;
+@activeBg: #009E60;
+@activeBgRgb: 0, 158, 96;
+@linkColor: #00ABE1;
+@textColor: #333;
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+  color: @textColor;
+  overscroll-behavior-x: none;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  color: @textColor;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center vertically */
+  background: @mainBg;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: 400;
+}
+
+h1, h2 {
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+}
+
+h3, h4, h5, h6, strong, b {
+  font-weight: 400;
+  text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+}
+
+@media @mobile {
+  html, body {
+    font-size: 14px;
+
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+  }
+}
+
+header, footer {
+  text-align: center;
+  padding: 1em 0;
+}
+
+main {
+  padding: 1em;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+  color: @linkColor;
+}
+
+a.btn {
+  padding: 4px 8px 3px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: 2px;
+
+  &.white {
+    background: white;
+    color: #666;
+
+    &.active {
+      background: @activeBg;
+      color: white;
+    }
+  }
+}
+
+.box {
+  margin: 6px 0px;
+  padding: 10px 20px 20px 20px;
+  border-radius: 8px;
+  background: #FFF;
+}
+
+.emailAddress {
+  font-size: 24px;
+}
+
+#bodyWrapper {
+  max-width: 960px;
+  width: 100%;
+  padding-top: 0;
+  margin-top: 164px; //pre-margin set until JS corrects it to the header's height
+
+  @media @mobile {
+    //margin-top: 260px;
+  }
+
+  > div {
+    width: 100%;
+    display: block;
+  }
+
+  #content {
+    padding: 8px 0px 20px 0px;
+
+    .socialMediaIcons {
+      a {
+        float: right;
+        display: flex;
+        align-items: center;
+        align-content: center;
+
+        svg, img {
+          width: 28px;
+          height: 28px;
+          margin: 0 5px 0 0;
+        }
+      }
+    }
+
+    .location {
+      color: #777;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      text-shadow: 1px 1px 2px white;
+
+      img {
+        @size: 28px;
+        width: @size;
+        height: @size;
+        display: inline;
+      }
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  footer {
+    text-align: left;
+    padding-top: 1px;
+    font-size: 14px;
+    border-top: 1px solid #DDD;
+    color: #999;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+@import "header.less";
+@import "posts.less";
+@import "touch.less";
+@import "markdown.less";

@@ -1,0 +1,127 @@
+#posts {
+  article.post {
+
+    margin: 15px 0 0px 0;
+
+    &:first-child {
+      margin-top: 6px;
+    }
+
+    a {
+      background: #FFF;
+      padding: 0;
+      border-radius: 10px;
+      color: @textColor;
+      display: flex;
+
+      -webkit-touch-callout: none;
+      -webkit-text-size-adjust: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-user-select: none;
+      user-select: none;
+
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+      @media @mobile {
+        h2 {
+          font-size: 20px;
+        }
+      }
+
+      &.active {
+        .postLinkClicked;
+      }
+
+      .left {
+        padding: 10px;
+        flex: 1;
+
+        h2 {
+          margin: 0 0 10px 0;
+        }
+
+        .desc {
+          color: #777;
+        }
+      }
+
+      .right {
+        width: 40px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        color: @activeBg;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+}
+
+.postLinkClicked {
+  background: @activeBg !important;
+  color: white !important;
+
+  .desc {
+    color: white !important;
+  }
+
+  .right {
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+html.nonTouch {
+  #posts article.post > a:active {
+    .postLinkClicked;
+  }
+}
+
+.table-of-contents {
+  border: 1px solid #DDD;
+  background: rgb(245, 245, 245);
+  padding: 15px 30px;
+  border-radius: 8px;
+  width: auto;
+  display: inline-block;
+  margin: 0;
+}
+
+.singlePost {
+  h1:first-child {
+    .heading-permalink {
+      display: none;
+    }
+  }
+  h1, h2, h3, h4 {
+    a.heading-permalink {
+      color: #DDD;
+      margin-right: 5px;
+      margin-left: -15px;
+      float: left;
+      font-weight: 300;
+      text-shadow: none;
+    }
+  }
+
+  @media @mobile {
+    font-size: 16px;
+  }
+
+}
+
+.singlePage {
+  @media @mobile {
+    font-size: 16px;
+  }
+
+  .heading-permalink {
+    display: none;
+  }
+}
