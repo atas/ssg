@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/atas/ssg-builder:latest
+      image: ghcr.io/atas/ssg-builder:1.0.0
 
     steps:
       - name: Checkout repository
