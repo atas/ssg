@@ -46,7 +46,7 @@ jobs:
 
       - name: Generate HTML
         run: |
-          system/bin/generate_html.sh
+          system/bin/generate-html.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2

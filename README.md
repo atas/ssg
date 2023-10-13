@@ -56,8 +56,8 @@ You can create any .php page at root directory or project or any subdirectory. `
 `./my-custom.php` will be `yoursite.com/my-custom`  
 `./my-custom-dir/my-custom.php` will be `yoursite.com/my-custom-dir/my-custom`
 
-Nginx and Apache `.htaccess` configurations are included to remove `.php` extension from URLs in your local dev 
-environment.
+Nginx configuration includes extensionless-php directives to remove `.php` extension from URLs in your local dev 
+environment. Don't put `.php` extensions in the URLs and links, just put in files.
 
 ## Enabling GitHub Pages
 
@@ -95,24 +95,25 @@ AAAA 2606:50c0:8000::153
     you can also add `your-github-username.github.io` as a CNAME record to your DNS records instead and still have a 
     custom domain, instead of the IP addresses above.
 
-## Local Development Environment in a PHP server (Nginx or Apache)
-You can use either apache with php or nginx with php-fpm locally to run your site. When run locally, there is no 
-build process, it's just PHP working server side. I won't dive into setting those up here.
+## Local Development Environment
 
-Do `composer update` locally to install dependencies before running locally. Build process does this automatically 
-but you need to do manually for local development.
+You can spin up the docker container and let it serve the PHP site locally, without a build process. You need to 
+have `docker` installed on your machine.
 
-### For Local Nginx
-use the config file in dir `./system/workflow-image/nginx.conf` and follow the comments.
+`cd` into the project directory
 
-### For Local Apache
-For local Apache, the .htaccess should be enough but also need to configure your virtual host in apache 
-configuration for the `local_hostname` domain name set in `config.json`.
+run:
+```
+make dev-server
+```
 
-Ensure local hostname matches the `local_hostname` in `config.json` file. Add it to hosts file at `/etc/hosts` if 
-necessary with IP `127.0.0.1`
+Alternatively, you don't have `make` installed, you can run below, and adjust the port `8001` to your liking:
+```
+docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh -p 8001:80 \
+    -v $(shell pwd):/workspace ghcr.io/atas/ssg-builder::latest
+```
 
-Locally, http works fine, https is used in build process with self-signed cert to generate URLs correctly.
+Your local php site will be running at `http://localhost:8001` with instant updates on page refresh, as PHP does.
 
 
 ## Architectural Considerations

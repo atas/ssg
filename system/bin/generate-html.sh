@@ -17,18 +17,10 @@ if ! pgrep "nginx" > /dev/null; then
     service nginx start
 fi
 
-hostname=$(jq -r '.hostname' config.json)
-
-if ! grep -qF "$hostname" "/etc/hosts"; then
-    echo "$hostname" >> "/etc/hosts"
-fi
-
-echo 127.0.0.1 "$hostname" >> /etc/hosts
-
 # Curl the URL $1 and save it to $2
 function curl_and_save() {
-  echo "curl_and_save https://$hostname$1 > $2"
-  curl -ks --fail "https://$hostname$1" > "$2"
+  echo "curl_and_save https://localhost$1 > $2"
+  curl -ks --fail "https://localhost$1" > "$2"
 
   # Check if the file exists and is not zero bytes
   if [[ ! -s $2 ]]; then
@@ -52,6 +44,9 @@ function curl_and_save() {
 #region Building HTML files
 rm -rf html
 mkdir -p html
+
+touch build.lock # we are running the build process.
+trap "rm -rf build.lock" EXIT
 
 # pages/*.md HTML BUilding
 for file in pages/*.md; do

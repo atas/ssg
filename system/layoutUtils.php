@@ -15,13 +15,12 @@ function selectedTabCss(string $tab): string
 }
 
 /**
- * Update config.json's local_hostname, in local host we use less.js in-browser compilation.
+ * Are we running like a PHP site or if the build pipeline running this?
  * @return bool
  */
-function isLocalHost(): bool
+function isBuildRunning(): bool
 {
-    global $config;
-    return $_SERVER['HTTP_HOST'] == $config->local_hostname;
+    return file_exists(__DIR__ . "/../build.lock");
 }
 
 /**
@@ -36,19 +35,5 @@ function getCurrentFullUrl(): string
     // Construct the full URL
     $currentUrl = $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-    return $currentUrl;
-}
-
-/**
- * Gets the current full hostname with protocol
- * @return string
- */
-function getCurrentHostnameWithProtocol(): string
-{
-    // Check if HTTPS or HTTP is being used
-    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
-
-    // Construct the full URL
-    $currentUrl = $protocol . "://" . $_SERVER['HTTP_HOST'];
     return $currentUrl;
 }
