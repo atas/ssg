@@ -20,7 +20,7 @@ function get_md_config(): array
     return [
         'allow_unsafe_links' => false,
         'external_link' => [
-            'internal_hosts' => [$config->hostname, $config->local_hostname],
+            'internal_hosts' => [getCurrentHostname()],
             'open_in_new_window' => true,
             'html_class' => 'external-link',
             'nofollow' => '',

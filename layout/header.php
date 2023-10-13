@@ -30,14 +30,14 @@ $desc = !isset($page_meta->desc) || strlen($page_meta->desc) == 0 ? $config->sit
     <meta property="og:image:height" content="685"/>
     <title><?= $title ?></title>
     <?php
-    if (isLocalHost()) {
+    if (isBuildRunning()) {
+        ?> <link rel="stylesheet" href="/assets/styles/style.css"> <?php
+    }
+    else {
         ?>
         <link rel="stylesheet/less" type="text/css" href="/assets/styles/style.less">
         <script src="https://cdn.jsdelivr.net/npm/less" ></script>
         <?php
-    }
-    else {
-        ?> <link rel="stylesheet" href="/assets/styles/style.css"> <?php
     }
     ?>
     <link rel="icon" type="image/jpeg" href="/assets/images/favicon-96.jpg">

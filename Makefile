@@ -8,7 +8,11 @@ build-local-image:
 	docker build system/workflow-image -t atas-ssg-builder:latest
 
 run-local-image:
-	docker run --rm -it -v $(shell pwd):/github/workspace atas-ssg-builder:latest
+	docker run --rm -it -v $(shell pwd):/workspace atas-ssg-builder:latest
+
+dev-server:
+	docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh -p 8001:80 \
+	-v $(shell pwd):/workspace atas-ssg-builder:latest
 
 # Updates the GHCR:latest image
 update-workflow-image:

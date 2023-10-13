@@ -63,3 +63,39 @@ function get_all_posts(): array
     include_once '404.php';
     exit;
 }
+
+/**
+ * Gets the current full hostname with protocol
+ * @return string
+ */
+function getCurrentHostname(): string
+{
+    // Check if HTTPS or HTTP is being used
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
+
+    // Get the server port
+    $port = $_SERVER['SERVER_PORT'];
+
+    // Depending on whether the port is standard for the protocol, include it in the URL
+    if (($protocol === 'http' && $port == 80) || ($protocol === 'https' && $port == 443)) {
+        // Standard ports for HTTP and HTTPS, respectively. No need to include the port in the URL.
+        $currentUrl = "{$_SERVER['HTTP_HOST']}";
+    } else {
+        // Non-standard port, include it in the URL.
+        $currentUrl = "{$_SERVER['HTTP_HOST']}:{$port}";
+    }
+
+    return $currentUrl;
+}
+
+/**
+ * Gets the current full hostname with protocol
+ * @return string
+ */
+function getCurrentHostnameWithProtocol(): string
+{
+    // Check if HTTPS or HTTP is being used
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
+
+    return "{$protocol}://" . getCurrentHostname();
+}
