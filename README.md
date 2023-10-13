@@ -41,11 +41,11 @@ FYI: GitHub Pages for public repos are free, private repos require paid GitHub s
 5. Add your posts to `./posts` directory in Markdown format. Post URLs are derived from `slug` key in the front matter.
    See
    the existing examples.
-6. Open `layout/footer.php` to add your tracking code if you want, Google Analytics, Matomo (Piwik), etc.
+6. Open file `./layout/footer.php` to add your tracking code if you want, Google Analytics, Matomo (Piwik), etc.
     * If using advanced analytics, add a GDPR banner, or use analytics with anonymisation. See my blog post about
       more: https://www.atasasmaz.com/p/gdpr-friendly-analytics
 7. For changing the layout, see `layout` directory, especially `header.php` and `footer.php`, simple HTML files with 
-  minimal PHP in them. For CSS changes, `less` is used to generate `css` files, see `assets/styles` directory.
+  minimal PHP in them. For CSS changes, `less` is used to generate `css` files, see `./assets/styles` directory.
 8. Follow the below steps to deploy to GitHub Pages.
 
 ## Enabling GitHub Pages
@@ -92,7 +92,7 @@ Do `composer update` locally to install dependencies before running locally. Bui
 but you need to do manually for local development.
 
 ### For Local Nginx
-use the config file in `system/workflow-image/nginx.conf` and follow the comments.
+use the config file in dir `./system/workflow-image/nginx.conf` and follow the comments.
 
 ### For Local Apache
 For local Apache, the .htaccess should be enough but also need to configure your virtual host in apache 
