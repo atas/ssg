@@ -117,6 +117,7 @@ Your local php site will be running at **http://localhost:8001** with instant up
 
 ## Future Plans
 
-### Caching ./pages and ./posts for performance in local env
+### Caching Markdown files for performance in local env
 
-Caching for pages and posts in local environment will be added, so that it doesn't need to process .md files every time.
+Caching for page and post Markdowns in local environment will be added, so that the local dev env is fast to 
+navigate between pages.
