@@ -115,10 +115,8 @@ docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh 
 
 Your local php site will be running at **http://localhost:8001** with instant updates on page refresh, as PHP does.
 
-## Architectural Considerations
+## Future Plans
 
 ### Caching ./pages and ./posts for performance in local env
 
-If you have a lot of pages and posts, local development environment will be likely slow. We can introduce caching to 
-speed it up, but if you have over a hundred pages and posts, you are probably better off with one of the more 
-advanced static site generators instead of this little tool.
+Caching for pages and posts in local environment will be added, so that it doesn't need to process .md files every time.
