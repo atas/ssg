@@ -3,8 +3,8 @@
 Harness the power of PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to juggle complex frameworks or master new templating languages. Simply fork, configure, and deploy!
 
 ## Demo - Examples
-This repo's CI deploys to https://ssg-test.atasasmaz.com you can visit there as a demo or visit my webpage for a 
-production-environment example at https://www.atasasmaz.com which has a separate private repo forked from this repo.
+This repo's CI deploys to https://ssg-test.atasasmaz.com you can visit there as a demo or for a 
+production example visit https://www.atasasmaz.com.
 
 ## Why Ata's SSG?
 
@@ -26,55 +26,55 @@ production-environment example at https://www.atasasmaz.com which has a separate
 **Disclaimer**: This project is purposefully kept as simple as possible for those just needing to output some HTML 
 from the simplest PHP files.
 
-## How to Use
+## Quick Start
 
-FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription.
+_FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription._
+
+🔴 IMPORTANT: Repo name should be `github-username.github.io` if you want to use GitHub Pages subdomain. Change it 
+from ssg while forking the repo or later in the repo settings.
 
 1. Fork this repository and **name the fork** as `your-github-username.github.io` if you want to use GitHub Pages as 
-   `https://your-github-username.github.io` or name it anything else if you want to use a custom domain.
+   `https://your-github-username.github.io` unless you use a custom domain with DNS records.
 
-2. Update the `config.json` file to your liking.
-3. Update images `favicon-96.jpg` `site-icon.jpg` `site-icon-big.jpg` at `./assets/images`
-4. Add your pages to ./pages directory in Markdown format. Page URLs are derived from the file name. `my-post.md`
-   will be
-   `yoursite.com/my-post` automatically.
-5. Add your posts to `./posts` directory in Markdown format. Post URLs are derived from `slug` key in the front matter.
-   See
-   the existing examples.
-6. Open file `./layout/footer.php` to add your tracking code if you want, Google Analytics, Matomo (Piwik), etc.
+
+2. Go to your repo -> Settings -> Pages (on the left) and select `GitHub Actions` option in the `Source` select box,
+   * Do not select Jekyll or static site options below, don't click on them.
+
+
+3. Go to `Actions` tab of your repo at top, beside `Code` and `Pull requests`.
+
+   * **Enable the Workflow**.
+   * Select Deploy Website from the left column.
+   * Click `Run Workflow` button on the right and click `Run Workflow` again.
+   * Now Select `All workflows` on the left column and see the progress of the build process.
+
+## Customisation of your site
+* Update the `config.json`, `favicon-96.jpg` `site-icon.jpg` `site-icon-big.jpg` at `./assets/images`
+
+* Pages: see examples in `./pages`. Page URLs are derived from the file name. `my-post.md` will be `yoursite.
+  com/my-post`.
+
+* Blog Posts: see examples in `./posts`. Post URLs are derived from `slug` key in the front matter.
+
+* Open file `./layout/footer.php` to add your tracking code if you want, Google Analytics, Matomo (Piwik), etc.
     * If using advanced analytics, add a GDPR banner, or use analytics with anonymisation. See my blog post about
       more: https://www.atasasmaz.com/p/gdpr-friendly-analytics
-7. For changing the layout, see `layout` directory, especially `header.php` and `footer.php`, simple HTML files with 
-  minimal PHP in them. For CSS changes, `less` is used to generate `css` files, see `./assets/styles` directory.
-8. Follow the below steps to deploy to GitHub Pages.
 
-### Individual PHP file to HTML
+* Layout changes: see `./layout` directory.   
 
-You can create any .php page at root directory or project or any subdirectory. `./system` and `./layout` directories, 
+* CSS changes: `less` is used to generate `css` files, see `./assets/styles` directory.
+
+## Having custom PHP files to HTML
+
+You can create any .php at root or any sub-dir. `./system` and `./layout` directories,
 `post.php` and `page.php` are excluded from individual PHP to HTML generation.
 
 `./my-custom.php` will be `yoursite.com/my-custom`  
 `./my-custom-dir/my-custom.php` will be `yoursite.com/my-custom-dir/my-custom`
 
-Nginx configuration includes extensionless-php directives to remove `.php` extension from URLs in your local dev 
-environment. Don't put `.php` extensions in the URLs and links, just put in files.
+Omit `.php` extensions in the URLs and links, but keep them in the actual files.
 
-## Enabling GitHub Pages
-
-1. Go to your repo -> Settings -> Pages (on the left) and select `GitHub Actions` option in the `Source` select box, 
-   change it from `Deploy from a branch`.
-2. Do not select Jekyll or static site options below, don't click on them.
-3. Go to Actions tab of your repo, beside `Code` and `Pull requests`.
-4. **Enable the Workflow**.
-5. Select Deploy Website from the left column.
-6. Click `Run Workflow` button on the right and click `Run Workflow` again.
-7. Now Select `All workflows` on the left column and see the progress of the build process.
-
-### Using GitHub Pages as `https://username.github.io`
-
-Nothing else to do, your website should be alive.
-
-### Using GitHub Pages through custom domain
+## Using a Custom Domain
 
 * Go to `your repo -> Settings -> Pages` (on the left) and select GitHub Actions option in the Source select box.
 * Add a custom domain below, anything you want, you will need to access to its DNS records.
