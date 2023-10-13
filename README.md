@@ -102,3 +102,12 @@ Ensure local hostname matches the `local_hostname` in `config.json` file. Add it
 necessary with IP `127.0.0.1`
 
 Locally, http works fine, https is used in build process with self-signed cert to generate URLs correctly.
+
+
+## Architectural Considerations
+
+### Caching ./pages and ./posts for performance in local env
+
+If you have a lot of pages and posts, local development environment will be likely slow. We can introduce caching to 
+speed it up, but if you have over a hundred pages and posts, you are probably better off with one of the more 
+advanced static site generators instead of this little tool.
