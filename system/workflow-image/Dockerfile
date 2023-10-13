@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     node-less \
     git \
     jq \
+    procps \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo_mysql
 
