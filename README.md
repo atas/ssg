@@ -48,13 +48,16 @@ FYI: GitHub Pages for public repos are free, private repos require paid GitHub s
   minimal PHP in them. For CSS changes, `less` is used to generate `css` files, see `./assets/styles` directory.
 8. Follow the below steps to deploy to GitHub Pages.
 
-### Custom PHP pages
+### Individual PHP file to HTML
 
-You can create any .php page at root directory or project or any sub-directory. `system` and `layout` directories 
-are excluded from html generation.
+You can create any .php page at root directory or project or any subdirectory. `./system` and `./layout` directories, 
+`post.php` and `page.php` are excluded from individual PHP to HTML generation.
 
 `./my-custom.php` will be `yoursite.com/my-custom`  
 `./my-custom-dir/my-custom.php` will be `yoursite.com/my-custom-dir/my-custom`
+
+Nginx and Apache `.htaccess` configurations are included to remove `.php` extension from URLs in your local dev 
+environment.
 
 ## Enabling GitHub Pages
 
