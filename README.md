@@ -122,3 +122,9 @@ Your local php site will be running at **http://localhost:8001** with instant up
 
 Caching for page and post Markdowns in local environment will be added, so that the local dev env is always fast to 
 navigate between urls, regardless of how many markdowns are there.
+
+### Pagination for posts
+
+I am a fan of continuous scrolling and not numbered pages. We can implement continuous scrolling on the homepage but 
+I can't imagine if it can be helpful for sites with less than 100 posts. Even after 100 posts, it should not 
+be a big problem for the page to be rendered. I am open for suggestions though.  
