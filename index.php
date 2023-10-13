@@ -2,7 +2,6 @@
 
 require_once "system/bootstrap.php";
 
-// @var $page_meta PageMeta
 global $page_meta;
 $page_meta->selectedTab = "home";
 

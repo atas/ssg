@@ -9,9 +9,7 @@ $md_path = "pages/$_GET[page].md";
  * If not, return 404.
  */
 if (!preg_match('/^[a-zA-Z0-9\-]+$/', $_GET['page']) || !file_exists($md_path)) {
-    header('HTTP/1.0 404 Not Found');
-    include '404.php';
-    exit;
+    exit_with_not_found();
 }
 
 $tpl = get_markdown($md_path);
