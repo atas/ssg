@@ -104,6 +104,7 @@ have `docker` installed on your machine.
 
 run:
 ```
+composer update
 make dev-server
 ```
 
