@@ -108,7 +108,7 @@ composer update
 make dev-server
 ```
 
-Alternatively, you don't have `make` installed, you can run below, and adjust the port `8001` to your liking:
+Alternatively, if you don't have `make` installed, you can run below, and adjust the port `8001` to your liking:
 ```
 docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh -p 8001:80 \
     -v $(shell pwd):/workspace ghcr.io/atas/ssg-builder::latest
