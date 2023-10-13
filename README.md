@@ -113,8 +113,7 @@ docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh 
     -v $(shell pwd):/workspace ghcr.io/atas/ssg-builder::latest
 ```
 
-Your local php site will be running at `http://localhost:8001` with instant updates on page refresh, as PHP does.
-
+Your local php site will be running at **http://localhost:8001** with instant updates on page refresh, as PHP does.
 
 ## Architectural Considerations
 
