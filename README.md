@@ -120,5 +120,5 @@ Your local php site will be running at **http://localhost:8001** with instant up
 
 ### Caching Markdown files for performance in local env
 
-Caching for page and post Markdowns in local environment will be added, so that the local dev env is fast to 
-navigate between pages.
+Caching for page and post Markdowns in local environment will be added, so that the local dev env is always fast to 
+navigate between urls, regardless of how many markdowns are there.
