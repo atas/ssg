@@ -110,6 +110,27 @@ docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh 
 
 Your local php site will be running at **http://localhost:8001** with instant updates on page refresh, as PHP does.
 
+## How to use this repo without forking
+
+* Create your empty repo on GitHub with nothing in it, nothing.
+* Clone this repo to your local.
+* `cd` into this repo and run 
+```
+git remote set-url origin git@github.com:Your-Username/your-new-repo.git
+git push
+git remote add upstream git@github.com:atas/ssg.git
+```
+
+Now use your repo as it is. If you want to update your repo from the original repo, run
+```
+git checkout -b updates-from-upstream
+git fetch upstream
+git merge upstream/main
+git push
+```
+
+Then create a pull request from `updates-from-upstream` branch to `main` branch and go through it.
+
 ## Future Plans
 
 ### Caching Markdown files for performance in local env
