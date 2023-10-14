@@ -3,35 +3,30 @@
 Harness the power of PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to juggle complex frameworks or master new templating languages. Simply fork, configure, and deploy!
 
 ## Demo - Examples
-This repo's CI deploys to https://ssg-test.atasasmaz.com you can visit there as a demo or for a 
-production example visit https://www.atasasmaz.com.
+This repo's CI deploys to: https://ssg-test.atasasmaz.com  
+Production example: https://www.atasasmaz.com.
 
 ## Why Ata's SSG?
 
-* **Simplicity with PHP**: PHP stands as a robust templating and server-side language, eliminating the need to learn new templating languages.
+* **Basic PHP**: PHP stands as a robust templating and server-side language, eliminating the need to learn new 
+  templating languages.
 
-* **No Framework Learning Curve**: Forget about the learning curve associated with new frameworks or 
-  applications. Familiarity with basic PHP is enough to get started. It's just few files.
+* **No Framework**: No learning a new frameworks or application. Familiarity with basic PHP is enough to get started. Just create your own HTML and PHP files.
 
-* **Markdown & Beyond**: Craft blog posts or pages with Markdown. Need more complexity? Integrate PHP effortlessly.
+* **Markdown & Beyond**: Write blog posts or create pages with Markdown. Need more complexity? Create HTML or PHP files.
 
-* **Efficient Deployment**: The process is straightforward. Build process visits each PHP and markdown page during, 
-  saves its HTML, and deploy directly to GitHub Pages.
+* **Efficient Deployment**: Build process visits each PHP and markdown page, saves their HTML, and deploys to GitHub 
+  Pages.
 
-* **Instant Local Preview**: If you setup a local PHP server, Visualize your changes locally in real-time, ensuring 
-  your 
-  development cycle isn't 
-  hindered by lengthy build times.
-
-**Disclaimer**: This project is purposefully kept as simple as possible for those just needing to output some HTML 
-from the simplest PHP files.
+* **Instant Local Preview**: There is an integrated docker-based local Nginx & PHP server, just run `make dev-server` 
+to Visualize your changes locally by just refreshing the page without a build process.
 
 ## Quick Start
 
 _FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription._
 
-🔴 IMPORTANT: Repo name should be `github-username.github.io` if you want to use GitHub Pages subdomain. Change it 
-from ssg while forking the repo or later in the repo settings.
+🔴 **IMPORTANT: Repo name** should be `github-username.github.io` if you want to use GitHub Pages subdomain. Change it 
+from `ssg` while forking the repo or later in the repo settings. To use a **Custom Domain**, scroll below for its steps.
 
 1. Fork this repository and **name the fork** as `your-github-username.github.io` if you want to use GitHub Pages as 
    `https://your-github-username.github.io` unless you use a custom domain with DNS records.
@@ -39,7 +34,6 @@ from ssg while forking the repo or later in the repo settings.
 
 2. Go to your repo -> Settings -> Pages (on the left) and select `GitHub Actions` option in the `Source` select box,
    * Do not select Jekyll or static site options below, don't click on them.
-
 
 3. Go to `Actions` tab of your repo at top, beside `Code` and `Pull requests`.
 
