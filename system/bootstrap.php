@@ -8,6 +8,10 @@ require_once(__DIR__ . '/Types.php');
 
 $config = json_decode(file_get_contents(__DIR__ . "/../config.json"));
 
+if ($config == null) {
+    die("Config file is invalid");
+}
+
 $page_meta = new PageMeta();
 $page_meta->desc = $config->site_desc;
 
