@@ -45,7 +45,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run Ata's SSG HTML Builder
-        uses: atas/ssg-html-builder@1.6
+        uses: atas/ssg-html-builder@1.7
         with:
           less_file_path: 'assets/styles/style.less'
 
