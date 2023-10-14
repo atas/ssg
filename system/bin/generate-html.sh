@@ -48,6 +48,8 @@ mkdir -p html
 touch build.lock # we are running the build process.
 trap "rm -rf build.lock" EXIT
 
+curl_and_save "/" "html/index.html"
+
 # pages/*.md HTML BUilding
 for file in pages/*.md; do
   filename=$(basename "$file" .md)
@@ -65,7 +67,8 @@ done
 # **/*.php Any php file HTML Building
 find . -name "*.php" ! -path "./system/*" ! -path "./vendor/*" ! -path "./layout/*" | while read -r file; do
     file="${file#./}" #Remove the leading ./
-    if [[ "$file" == "page.php" || "$file" == "post.php" ]]; then #pages and posts are handled above separately
+    #pages and posts are handled above separately
+    if [[ "$file" == "page.php" || "$file" == "post.php" || "$file" == "index.php" ]]; then
       continue;
     fi
 
