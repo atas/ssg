@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Ata's SSG - Build and Deploy
 
 on:
   push:
