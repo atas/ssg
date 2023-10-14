@@ -1,6 +1,6 @@
 ---
 title: About
-desc: About Ata Sasmaz, a seasoned Software Engineer, specializing in the nuances of web application development, deployment, and DevOps
+desc: Meta description about your this page.
 selectedTab: about
 ---
 
