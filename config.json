@@ -2,6 +2,7 @@
   "site_top_h1": "ata's ssg",
   "site_top_about_line1": "Simple PHP-based Static Site generator",
   "site_top_about_line2": "Supports Markdown and deployed to GitHub Pages by GitHub Actions",
+  "prod_hostname": "ssg-test.atasasmaz.com",
   "email": "local-address@your-domain.com",
   "full_title": "Ata's SSG - a Simple PHP-based SSG for GitHub Pages",
   "appended_title": " - Ata's SSG",

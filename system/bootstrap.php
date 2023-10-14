@@ -69,27 +69,39 @@ function get_all_posts(): array
 }
 
 /**
+ * Are we running like a PHP site or if the build pipeline running this?
+ * @return bool
+ */
+function isBuildRunning(): bool
+{
+    return file_exists(__DIR__ . "/../build.lock");
+}
+
+/**
  * Gets the current full hostname with protocol
  * @return string
  */
 function getCurrentHostname(): string
 {
+    global $config;
+
     // Check if HTTPS or HTTP is being used
     $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
 
+    $host = isBuildRunning() ? $config->prod_hostname : $_SERVER['HTTP_HOST'];
     // Get the server port
     $port = $_SERVER['SERVER_PORT'];
 
     // Depending on whether the port is standard for the protocol, include it in the URL
     if (($protocol === 'http' && $port == 80) || ($protocol === 'https' && $port == 443)) {
         // Standard ports for HTTP and HTTPS, respectively. No need to include the port in the URL.
-        $currentUrl = "{$_SERVER['HTTP_HOST']}";
+        $currentHost = "{$host}";
     } else {
         // Non-standard port, include it in the URL.
-        $currentUrl = "{$_SERVER['HTTP_HOST']}:{$port}";
+        $currentHost = "{$host}:{$port}";
     }
 
-    return $currentUrl;
+    return $currentHost;
 }
 
 /**
@@ -102,4 +114,13 @@ function getCurrentHostnameWithProtocol(): string
     $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
 
     return "{$protocol}://" . getCurrentHostname();
+}
+
+/**
+ * Gets the current full URL
+ * @return string
+ */
+function getCurrentFullUrl(): string
+{
+    return getCurrentHostnameWithProtocol() . $_SERVER['REQUEST_URI'];
 }
