@@ -13,6 +13,7 @@ class PageMeta
     public string $type = "website";
     public string $desc = "";
     public string $selectedTab = "";
+    public string $og_image;
 }
 
 class ConvertedMarkdown {

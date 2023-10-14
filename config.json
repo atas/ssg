@@ -10,5 +10,6 @@
   "linkedin_url": "https://www.linkedin.com/in/atasasmaz",
   "twitter_url": "https://twitter.com/AtaSasmaz",
   "github_url": "https://github.com/atas",
-  "location": "City, Country"
+  "location": "City, Country",
+  "default_opengraph_image": "assets/images/site-icon-big.jpg"
 }

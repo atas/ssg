@@ -6,6 +6,14 @@ global $page_meta, $config;
 $title = !isset($page_meta->title) || strlen($page_meta->title) == 0 ? $config->full_title : "$page_meta->title$config->appended_title";
 $desc = !isset($page_meta->desc) || strlen($page_meta->desc) == 0 ? $config->site_desc : $page_meta->desc;
 
+if (!preg_match('/^(https?:\/\/|\/)/', $page_meta->og_image)) {
+    list($og_image_width, $og_image_height) = getimagesize($page_meta->og_image);
+    $og_image = getCurrentHostnameWithProtocol() . "/" . $page_meta->og_image;
+}
+else if (preg_match('/^https?:\/\//', $page_meta->og_image)) {
+    $og_image = $page_meta->og_image;
+}
+
 ?>
 <!-- Built with Ata's SSG https://www.github.com/atas/ssg -->
 <!DOCTYPE html>
@@ -25,9 +33,14 @@ $desc = !isset($page_meta->desc) || strlen($page_meta->desc) == 0 ? $config->sit
     <meta property="og:type" content="<?= $page_meta->type ?>"/>
     <meta property="og:title" content="<?= $title ?>"/>
     <meta property="og:description" content="<?= $desc ?>"/>
-    <meta property="og:image" content="<?= getCurrentHostnameWithProtocol() ?>/assets/images/site-icon-big.jpg"/>
-    <meta property="og:image:width" content="685"/>
-    <meta property="og:image:height" content="685"/>
+    <?php
+        if (isset($og_image))
+            echo "<meta property=\"og:image\" content=\"$og_image\"/>\n";
+        if (isset($og_image_width))
+            echo "<meta property=\"og:image:width\" content=\"$og_image_width\"/>\n";
+        if (isset($og_image_height))
+            echo "<meta property=\"og:image:height\" content=\"$og_image_height\"/>\n";
+    ?>
     <title><?= $title ?></title>
     <?php
     if (isBuildRunning()) {

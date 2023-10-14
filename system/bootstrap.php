@@ -14,6 +14,7 @@ if ($config == null) {
 
 $page_meta = new PageMeta();
 $page_meta->desc = $config->site_desc;
+$page_meta->og_image = $config->default_opengraph_image;
 
 /**
  * Get a markdown file by its path, by converting that to html
