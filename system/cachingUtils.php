@@ -20,6 +20,10 @@ function findMostRecentlyUpdatedFile($dir) {
 /*
  * TODO: This function needs refactoring, should be a class, and needs tests.
  * It can also be used for caching individual .md files.
+ *
+ * This function reads the posts directory to generate posts.json file
+ * This way we are not compiling every .md file to read its meta data (front matter)
+ * If any post's last modified time is newer than the cached posts.json file, it will be updated
  * @return Post[]
  */
 function updateAndGetCachedPostList(): array
