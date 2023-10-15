@@ -7,7 +7,7 @@ juggle complex frameworks or master new templating languages. Simply clone, conf
 
 1. Clone the repo
 2. `cd` into project dir, run `$ composer update`
-3. Run `$ make dev-ser` (needs docker)  
+3. Run `$ make dev-server` (needs docker)  
    Your local php site will be running at **http://localhost:8001**
 4. Add your markdown pages and posts to `./pages` and `./posts`, or .php files anywhere and commit & push to a new repo.
 * Your site will be alive on GitHub Pages!
