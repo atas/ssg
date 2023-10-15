@@ -1,5 +1,7 @@
 <?php
 
+use Atas\SsgSystemPhp\PostsCache;
+
 require_once "system/bootstrap.php";
 
 global $page_meta;
@@ -7,7 +9,7 @@ $page_meta->selectedTab = "home";
 
 require_once 'layout/header.php';
 
-$posts = updateAndGetCachedPostList();
+$posts = (new PostsCache())->updateAndGetCachedPostList();
 
 echo "<div id='posts'>";
 foreach ($posts as $post) {

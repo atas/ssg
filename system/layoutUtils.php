@@ -1,5 +1,7 @@
 <?php
 
+namespace Atas\SsgSystemPhp;
+
 /**
  * Returns the 'selected' css class if the selectedTab variable matches the given tab name. Or returns empty string.
  * @param $tab string

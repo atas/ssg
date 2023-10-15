@@ -1,11 +1,13 @@
 <?php
 
+namespace Atas\SsgSystemPhp;
+
 use JetBrains\PhpStorm\NoReturn;
 use League\CommonMark\Exception\CommonMarkException;
 
 require_once(__DIR__ . "/../vendor/autoload.php");
 require_once(__DIR__ . '/Types.php');
-require_once(__DIR__ . '/cachingUtils.php');
+require_once(__DIR__ . '/PostsCache.php');
 
 $config = json_decode(file_get_contents(__DIR__ . "/../config.json"));
 
@@ -65,9 +67,9 @@ function getCurrentHostname(): string
     // Check if HTTPS or HTTP is being used
     $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
 
-    $host = isBuildRunning() ? $config->prod_hostname : $_SERVER['HTTP_HOST'];
+    $host = isBuildRunning() ? $config->prod_hostname : $_SERVER['HTTP_HOST'] ?? "localhost";
     // Get the server port
-    $port = $_SERVER['SERVER_PORT'];
+    $port = $_SERVER['SERVER_PORT'] ?? "80";
 
     // Depending on whether the port is standard for the protocol, include it in the URL
     if (($protocol === 'http' && $port == 80) || ($protocol === 'https' && $port == 443)) {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Atas\SsgSystemPhp;
+
 class Post {
     public string $title;
     public string $desc;

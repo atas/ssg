@@ -2,6 +2,13 @@
 require_once __DIR__ . "/../system/layoutUtils.php";
 
 global $config;
+
+use function Atas\SsgSystemPhp\get_email_parts_in_js;
+use function Atas\SsgSystemPhp\getCurrentFullUrl;
+use function Atas\SsgSystemPhp\GetProcessedPageMeta;
+use function Atas\SsgSystemPhp\isBuildRunning;
+use function Atas\SsgSystemPhp\selectedTabCss;
+
 $processed_meta = GetProcessedPageMeta();
 
 ?>

@@ -1,5 +1,9 @@
 <?php
 
+use Atas\SsgSystemPhp\PostsCache;
+use function Atas\SsgSystemPhp\exit_with_not_found;
+use function Atas\SsgSystemPhp\get_markdown;
+
 require_once "system/bootstrap.php";
 global $page_meta;
 
@@ -13,8 +17,7 @@ if (!preg_match('/^[a-zA-Z0-9\-]+$/', $_GET['slug'])) {
 }
 
 // Iterate through all posts and find the one with the same slug
-// Not the most performant but once deployed they will all be static websites.
-$post = current(array_filter(updateAndGetCachedPostList(), function ($post) {
+$post = current(array_filter((new PostsCache())->updateAndGetCachedPostList(), function ($post) {
     return $post->slug == $_GET['slug'];
 }));
 

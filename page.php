@@ -1,4 +1,8 @@
 <?php
+
+use function Atas\SsgSystemPhp\exit_with_not_found;
+use function Atas\SsgSystemPhp\get_markdown;
+
 include "system/bootstrap.php";
 global $page_meta;
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace Atas\SsgSystemPhp;
+
 require_once(__DIR__."/../vendor/league/commonmark/src/GithubFlavoredMarkdownConverter.php");
 
 use League\CommonMark\Exception\CommonMarkException;
@@ -71,6 +73,10 @@ function convert_markdown($path): ConvertedMarkdown
     if ($output instanceof RenderedContentWithFrontMatter) {
         $tpl->meta = (object) $output->getFrontMatter();
     }
+    if (!isset($tpl->meta)) $tpl->meta = new \stdClass();
+    if (!isset($tpl->meta->title)) $tpl->meta->title = "Untitled";
+    if (!isset($tpl->meta->slug)) $tpl->meta->slug = "slug";
+    if (!isset($tpl->meta->desc)) $tpl->meta->desc = "";
 
     return $tpl;
 }
