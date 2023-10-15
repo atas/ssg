@@ -2,7 +2,7 @@
 "title": "This site is deployed by github.com/atas/ssg"
 "desc": "This is a demo website for Ata's SSG and deployed by github.com/atas/ssg. You can fork this repo and build 
 your own static website in no time."
-"slug": "ssg-benefits"
+"slug": "deployed-by-atas-ssg"
 ---
 
 # This site is deployed by github.com/atas/ssg
