@@ -96,12 +96,7 @@ Your local php site will be running at **http://localhost:8001** with instant up
 * Clone this repo to your local.
 * `cd` into this repo and run 
 ```
-git push
 git remote add upstream git@github.com:atas/ssg.git
-```
-
-Now use your repo as it is. If you want to update your repo from the original repo, run
-```
 git checkout -b updates-from-upstream
 git fetch upstream
 git merge upstream/main
