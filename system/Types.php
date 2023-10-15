@@ -5,6 +5,9 @@ class Post {
     public string $desc;
     public string $slug;
     public string $filename;
+
+    // When was the file modified last
+    public int $lastModified;
 }
 
 class PageMeta

@@ -5,6 +5,7 @@ use League\CommonMark\Exception\CommonMarkException;
 
 require_once(__DIR__ . "/../vendor/autoload.php");
 require_once(__DIR__ . '/Types.php');
+require_once(__DIR__ . '/cachingUtils.php');
 
 $config = json_decode(file_get_contents(__DIR__ . "/../config.json"));
 
@@ -31,31 +32,6 @@ function get_markdown($path): ConvertedMarkdown
     require_once 'system/markdown.php';
 
     return convert_markdown($path);
-}
-
-/**
- * Generate and return all posts as an array
- * @return Post[]
- * @throws CommonMarkException
- */
-function get_all_posts(): array
-{
-    $posts = [];
-    $files = glob('posts/*.md');
-    rsort($files);
-    foreach ($files as $key => $post_file_path) {
-        $tpl = get_markdown($post_file_path);
-
-        $postObj = new Post();
-        $postObj->title = $tpl->meta->title;
-        $postObj->desc = $tpl->meta->desc;
-        $postObj->slug = $tpl->meta->slug;
-        $postObj->filename = $post_file_path;
-
-        $posts[] = $postObj;
-    }
-
-    return $posts;
 }
 
 /**

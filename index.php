@@ -7,7 +7,7 @@ $page_meta->selectedTab = "home";
 
 require_once 'layout/header.php';
 
-$posts = get_all_posts();
+$posts = updateAndGetCachedPostList();
 
 echo "<div id='posts'>";
 foreach ($posts as $post) {

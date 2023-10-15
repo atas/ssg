@@ -107,11 +107,6 @@ Then create a pull request from `updates-from-upstream` branch to `main` branch 
 
 ## Future Plans
 
-### Caching Markdown files for performance in local env
-
-Caching for page and post Markdowns in local environment will be added, so that the local dev env is always fast to 
-navigate between urls, regardless of how many markdowns are there.
-
 ### Pagination for posts
 
 I am a fan of continuous scrolling and not numbered pages. We can implement continuous scrolling on the homepage but 
