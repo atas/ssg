@@ -1,10 +1,27 @@
 # Ata's SSG - A PHP-based Static Site Generator for GitHub Pages
 
-Harness the power of PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to juggle complex frameworks or master new templating languages. Simply fork, configure, and deploy!
+Harness the power of simple PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to 
+juggle complex frameworks or master new templating languages. Simply clone, configure, and deploy!
+
+## Quick Start
+
+1. Clone the repo
+2. `cd` into project dir, run `$ composer update`
+3. Run `$ make dev-ser` (needs docker)  
+   Your local php site will be running at **http://localhost:8001**
+4. Add your markdown pages and posts to `./pages` and `./posts`, or .php files anywhere and commit & push to a new repo.
+* Your site will be alive on GitHub Pages!
+
+🔴 **IMPORTANT: Your repo name** should be `github-username.github.io` if you want to use GitHub Pages subdomain. To 
+use a **Custom Domain**, check my docs for [GITHUB PAGES](GITHUB-PAGES.md).
+
+## Configuring GitHub Pages
+
+Please see my docs for [GITHUB PAGES](GITHUB-PAGES.md) for details.
 
 ## Related projects
-Docker image: https://github.com/atas/ssg-builder-image  
 Custom GitHub Action: https://github.com/atas/ssg-html-builder-action
+Docker image: https://github.com/atas/ssg-builder-image
 
 ## Demo - Examples
 This repo's CI deploys to: https://ssg-test.atasasmaz.com  
@@ -25,36 +42,16 @@ Production example: https://www.atasasmaz.com
 * **Instant Local Preview**: There is an integrated docker-based local Nginx & PHP server, just run `make dev-server` 
 to Visualize your changes locally by just refreshing the page without a build process.
 
-## Quick Start
-
-_FYI: GitHub Pages for public repos are free, private repos require paid GitHub subscription._
-
-🔴 **IMPORTANT: Repo name** should be `github-username.github.io` if you want to use GitHub Pages subdomain. Change it 
-from `ssg` while forking the repo or later in the repo settings. To use a **Custom Domain**, scroll below for its steps.
-
-1. Fork this repository and **name the fork** as `your-github-username.github.io` if you want to use GitHub Pages as 
-   `https://your-github-username.github.io` unless you use a custom domain with DNS records.
-
-
-2. Go to your repo -> Settings -> Pages (on the left) and select `GitHub Actions` option in the `Source` select box,
-   * Do not select Jekyll or static site options below, don't click on them.
-
-3. Go to `Actions` tab of your repo at top, beside `Code` and `Pull requests`.
-
-   * **Enable the Workflow**.
-   * Select Deploy Website from the left column.
-   * Click `Run Workflow` button on the right and click `Run Workflow` again.
-   * Now Select `All workflows` on the left column and see the progress of the build process.
 
 ## Customisation of your site
-* Update the `config.json`, `favicon-96.jpg` `site-icon.jpg` `site-icon-big.jpg` at `./assets/images`
+* Update the `config.json` at root, and `favicon-96.jpg` `site-icon.jpg` `site-icon-big.jpg` at `./assets/images`
 
 * Pages: see examples in `./pages`. Page URLs are derived from the file name. `my-post.md` will be `yoursite.
   com/my-post`.
 
 * Blog Posts: see examples in `./posts`. Post URLs are derived from `slug` key in the front matter.
 
-* Open file `./layout/footer.php` to add your tracking code if you want, Google Analytics, Matomo (Piwik), etc.
+* Open file `./layout/footer.php` to add your tracking code like Google Analytics, Matomo (Piwik), etc.
     * If using advanced analytics, add a GDPR banner, or use analytics with anonymisation. See my blog post about
       more: https://www.atasasmaz.com/p/gdpr-friendly-analytics
 
@@ -71,27 +68,6 @@ You can create any .php at root or any sub-dir. `./system` and `./layout` direct
 `./my-custom-dir/my-custom.php` will be `yoursite.com/my-custom-dir/my-custom`
 
 Omit `.php` extensions in the URLs and links, but keep them in the actual files.
-
-## Using a Custom Domain
-
-* Go to `your repo -> Settings -> Pages` (on the left) and select GitHub Actions option in the Source select box.
-* Add a custom domain below, anything you want, you will need to access to its DNS records.
-* Add below A and AAAA records for your domain name or subdomain. Official docs are here: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
-
-_FYI: You can have multiple A and AAAA records for the same domain or subdomain name._
-```
-A 185.199.108.153
-A 185.199.109.153
-A 185.199.111.153
-A 185.199.110.153
-AAAA 2606:50c0:8003::153
-AAAA 2606:50c0:8002::153
-AAAA 2606:50c0:8001::153
-AAAA 2606:50c0:8000::153
-```
-* * If your repo name matches `your-github-username.github.io`, which you can only have one repo in this name, then 
-    you can also add `your-github-username.github.io` as a CNAME record to your DNS records instead and still have a 
-    custom domain, instead of the IP addresses above.
 
 ## Local Development Environment
 
@@ -114,13 +90,12 @@ docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh 
 
 Your local php site will be running at **http://localhost:8001** with instant updates on page refresh, as PHP does.
 
-## How to use this repo without forking
+## Keep in touch with this repo's future updates
 
 * Create your empty repo on GitHub with nothing in it, nothing.
 * Clone this repo to your local.
 * `cd` into this repo and run 
 ```
-git remote set-url origin git@github.com:Your-Username/your-new-repo.git
 git push
 git remote add upstream git@github.com:atas/ssg.git
 ```
