@@ -19,6 +19,7 @@ function findMostRecentlyUpdatedFile($dir) {
 
 /*
  * TODO: This function needs refactoring, should be a class, and needs tests.
+ * It can also be used for caching individual .md files.
  * @return Post[]
  */
 function updateAndGetCachedPostList(): array
@@ -78,6 +79,11 @@ function updateAndGetCachedPostList(): array
             }
         }
     }
+
+    // Sort the cached posts by descending filename
+    usort($cachedPosts, function($a, $b) {
+        return strcmp($b->filename, $a->filename);
+    });
 
     // Only save the updated cache if it was modified
     if ($cacheModified) {
