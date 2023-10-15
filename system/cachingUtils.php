@@ -18,6 +18,7 @@ function findMostRecentlyUpdatedFile($dir) {
 }
 
 /*
+ * TODO: This function needs refactoring and needs to be a class.
  * @return Post[]
  */
 function updateAndGetCachedPostList(): array
