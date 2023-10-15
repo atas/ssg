@@ -1,18 +1,8 @@
 <?php
 require_once __DIR__ . "/../system/layoutUtils.php";
 
-global $page_meta, $config;
-
-$title = !isset($page_meta->title) || strlen($page_meta->title) == 0 ? $config->full_title : "$page_meta->title$config->appended_title";
-$desc = !isset($page_meta->desc) || strlen($page_meta->desc) == 0 ? $config->site_desc : $page_meta->desc;
-
-if (!preg_match('/^(https?:\/\/|\/)/', $page_meta->og_image)) {
-    list($og_image_width, $og_image_height) = getimagesize($page_meta->og_image);
-    $og_image = getCurrentHostnameWithProtocol() . "/" . $page_meta->og_image;
-}
-else if (preg_match('/^https?:\/\//', $page_meta->og_image)) {
-    $og_image = $page_meta->og_image;
-}
+global $config;
+$processed_meta = GetProcessedPageMeta();
 
 ?>
 <!-- Built with Ata's SSG https://www.github.com/atas/ssg -->
@@ -27,21 +17,21 @@ else if (preg_match('/^https?:\/\//', $page_meta->og_image)) {
     <meta name="theme-color" content="#000000"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
-    <meta name="description" content="<?= $desc ?>"/>
+    <meta name="description" content="<?= $processed_meta->desc ?>"/>
 
     <meta property="og:url" content="<?= getCurrentFullUrl() ?>"/>
-    <meta property="og:type" content="<?= $page_meta->type ?>"/>
-    <meta property="og:title" content="<?= $title ?>"/>
-    <meta property="og:description" content="<?= $desc ?>"/>
+    <meta property="og:type" content="<?= $processed_meta->type ?>"/>
+    <meta property="og:title" content="<?= $processed_meta->title ?>"/>
+    <meta property="og:description" content="<?= $processed_meta->desc ?>"/>
     <?php
-        if (isset($og_image))
-            echo "<meta property=\"og:image\" content=\"$og_image\"/>\n";
-        if (isset($og_image_width))
-            echo "<meta property=\"og:image:width\" content=\"$og_image_width\"/>\n";
-        if (isset($og_image_height))
-            echo "<meta property=\"og:image:height\" content=\"$og_image_height\"/>\n";
+        if (isset($processed_meta->og_image))
+            echo "<meta property=\"og:image\" content=\"$processed_meta->og_image\"/>\n";
+        if (isset($processed_meta->og_image_width))
+            echo "<meta property=\"og:image:width\" content=\"$processed_meta->og_image_width\"/>\n";
+        if (isset($processed_meta->og_image_height))
+            echo "<meta property=\"og:image:height\" content=\"$processed_meta->og_image_height\"/>\n";
     ?>
-    <title><?= $title ?></title>
+    <title><?= $processed_meta->title ?></title>
     <?php
     if (isBuildRunning()) {
         ?> <link rel="stylesheet" href="/assets/styles/style.css"> <?php
@@ -55,14 +45,7 @@ else if (preg_match('/^https?:\/\//', $page_meta->og_image)) {
     ?>
     <link rel="icon" type="image/jpeg" href="/assets/images/favicon-96.jpg">
     <script>
-        <?php
-        // Secure email by splitting it into two parts so that it's not easily scrapable by bots
-        $email_parts = explode('@', $config->email);
-        if (count($email_parts) === 2) {
-        ?>
-        const email_local = "<?= $email_parts[0] ?>";
-        const email_domain = "<?= $email_parts[1] ?>";
-        <?php } ?>
+        <?= get_email_parts_in_js() ?>
     </script>
     <script src="/assets/site.js"></script>
 </head>
