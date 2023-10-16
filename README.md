@@ -20,8 +20,9 @@ use a **Custom Domain**, check my docs for [GITHUB PAGES](GITHUB-PAGES.md).
 Please see my docs for [GITHUB PAGES](GITHUB-PAGES.md) for details.
 
 ## Related projects
-Custom GitHub Action: https://github.com/atas/ssg-html-builder-action
-Docker image: https://github.com/atas/ssg-builder-image
+* Custom GitHub Action: https://github.com/atas/ssg-html-builder-action
+* Docker image: https://github.com/atas/ssg-builder-image
+* PHP Lib: https://github.com/atas/ssg-system-php
 
 ## Demo - Examples
 This repo's CI deploys to: https://ssg-test.atasasmaz.com  
