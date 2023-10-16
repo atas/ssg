@@ -5,5 +5,6 @@ html
 vendor
 assets/styles/*.css
 assets/styles/*.css.map
+tmp/*.md
 tmp/*.json
 tmp/*.php
