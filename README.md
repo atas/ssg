@@ -84,8 +84,8 @@ make dev-server
 
 Alternatively, if you don't have `make` installed, you can run below, and adjust the port `8001` to your liking:
 ```
-docker run --rm -it --entrypoint /workspace/system/bin/dev-server-entrypoint.sh -p 8001:80 \
-    -v $(shell pwd):/workspace ghcr.io/atas/ssg-builder::latest
+docker run --rm -it --entrypoint /dev-server-entrypoint.sh -p 8001:80 \
+    -v $(pwd):/workspace ghcr.io/atas/ssg-builder:latest
 ```
 
 Your local php site will be running at **http://localhost:8001** with instant updates on page refresh, as PHP does.
