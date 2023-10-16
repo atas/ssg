@@ -1,13 +1,17 @@
 <?php
 
-require_once "system/bootstrap.php";
+require 'vendor/autoload.php';
 
-global $page_meta;
-$page_meta->selectedTab = "home";
+//require_once __DIR__ . '/vendor/atas/ssg-system-php/src/AtasSsg.php';
+
+use Atas\SsgSystemPhp\AtasSsg;
+
+$ssg = new AtasSsg(__DIR__);
+$ssg->pageMeta->selectedTab = $tpl->meta->selectedTab ?? "home";
 
 require_once 'layout/header.php';
 
-$posts = updateAndGetCachedPostList();
+$posts = $ssg->postCache->updateAndGetCachedPostList();
 
 echo "<div id='posts'>";
 foreach ($posts as $post) {

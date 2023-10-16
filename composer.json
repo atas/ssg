@@ -4,17 +4,14 @@
   "type": "project",
   "autoload": {
     "psr-4": {
-      "atas-ssg\\github.com\\": ""
     }
   },
   "require": {
-    "league/commonmark": "^2.4",
-    "symfony/yaml": "^5.4",
-    "ext-json": "*"
+    "atas/ssg-system-php": "1.0"
   },
   "config": {
     "platform": {
-      "php": "7.4.0"
+      "php": "8.2.0"
     }
   }
 }
