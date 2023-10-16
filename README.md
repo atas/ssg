@@ -50,15 +50,19 @@ to Visualize your changes locally by just refreshing the page without a build pr
 * Pages: see examples in `./pages`. Page URLs are derived from the file name. `my-post.md` will be `yoursite.
   com/my-post`.
 
-* Blog Posts: see examples in `./posts`. Post URLs are derived from `slug` key in the front matter.
+* Blog Posts: see examples in `./posts`. Post URLs are derived from `slug` key in the front matter. Blog post files 
+  start with an id e.g. 2_some_title.md and IDs are used to sort them in descending order. It's a string comparison 
+  sort, not numeric.
+
+* Layout changes: see `./layout` directory.
 
 * Open file `./layout/footer.php` to add your tracking code like Google Analytics, Matomo (Piwik), etc.
     * If using advanced analytics, add a GDPR banner, or use analytics with anonymisation. See my blog post about
       more: https://www.atasasmaz.com/p/gdpr-friendly-analytics
 
-* Layout changes: see `./layout` directory.   
-
 * CSS changes: `less` is used to generate `css` files, see `./assets/styles` directory.
+  * Check `.github/workflows/build-and-deploy.yml` and remove line pointing to the `.less` file if you don't want to 
+    LESS and use good old CSS.
 
 ## Having custom PHP files to HTML
 
