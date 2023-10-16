@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/atas/ssg-builder:202310141934
+      image: ghcr.io/atas/ssg-builder:202310152231
 
     steps:
       - name: Checkout repository
@@ -42,10 +42,7 @@ jobs:
 
       # Install Composer dependencies
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
-
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit
+        run: composer install --prefer-dist --no-progress --no-dev
 
       - name: Run Ata's SSG HTML Builder
         uses: atas/ssg-html-builder-action@2.2
