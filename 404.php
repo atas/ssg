@@ -1,10 +1,13 @@
 <?php
-require_once 'system/bootstrap.php';
+require 'vendor/autoload.php';
 
-global $page_meta;
+use Atas\SsgSystemPhp\AtasSsg;
 
-$page_meta->title = "404 Not Found";
-$page_meta->desc = "This page has not been found.";
+$ssg = new AtasSsg(__DIR__);
+$ssg->pageMeta->selectedTab = $tpl->meta->selectedTab ?? "home";
+
+$ssg->pageMeta->title = "404 Not Found";
+$ssg->pageMeta->desc = "This page has not been found.";
 
 require_once 'layout/header.php';
 ?>

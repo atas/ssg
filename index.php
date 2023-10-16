@@ -1,8 +1,5 @@
 <?php
-
 require 'vendor/autoload.php';
-
-//require_once __DIR__ . '/vendor/atas/ssg-system-php/src/AtasSsg.php';
 
 use Atas\SsgSystemPhp\AtasSsg;
 
