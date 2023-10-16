@@ -1,26 +1,22 @@
 <?php
 
-use function Atas\SsgSystemPhp\exit_with_not_found;
-use function Atas\SsgSystemPhp\get_markdown;
+require 'vendor/autoload.php';
 
-include "system/bootstrap.php";
-global $page_meta;
+use Atas\SsgSystemPhp\AtasSsg;
+
+$ssg = new AtasSsg(__DIR__);
 
 $md_path = "pages/$_GET[page].md";
 
-/**
- * Page parameter can only be alphanumeric and hyphen and .md file must exist.
- * If not, return 404.
- */
-if (!preg_match('/^[a-zA-Z0-9\-]+$/', $_GET['page']) || !file_exists($md_path)) {
-    exit_with_not_found();
-}
+// If not found, return 404.
+if (!file_exists($md_path)) $ssg->exit_with_not_found();
 
-$tpl = get_markdown($md_path);
+$tpl = $ssg->markdown->convert($md_path);
 
-$page_meta->title = $tpl->meta->title ?? null;
-$page_meta->desc = $tpl->meta->desc ?? null;
-$page_meta->selectedTab = $tpl->meta->selectedTab ?? "index";
+$ssg->pageMeta->title = $tpl->meta->title ?? null;
+$ssg->pageMeta->desc = $tpl->meta->desc ?? null;
+$ssg->pageMeta->selectedTab = $tpl->meta->selectedTab ?? "index";
+
 include 'layout/header.php';
 ?>
 

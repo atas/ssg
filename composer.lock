@@ -4,8 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da22f8ba7dfb075dcc5ffcac6a268ac4",
+    "content-hash": "2a6359153e7504228eef0abddc8a4613",
     "packages": [
+        {
+            "name": "atas/ssg-system-php",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/Users/ata/projects/ssg-system-php",
+                "reference": "4e28cdd129a6c7642406aaf6916fd0a630650ae7"
+            },
+            "require": {
+                "ext-json": "*",
+                "league/commonmark": "^2.4",
+                "symfony/yaml": "^5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Atas\\SsgSystemPhp\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Ata's SSG System PHP files",
+            "transport-options": {
+                "symlink": false,
+                "relative": false
+            }
+        },
         {
             "name": "dflydev/dot-access-data",
             "version": "v3.0.2",
@@ -2511,12 +2542,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "atas/ssg-system-php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "ext-json": "*"
-    },
+    "platform": [],
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.4.0"

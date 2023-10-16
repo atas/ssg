@@ -4,20 +4,10 @@
   "type": "project",
   "autoload": {
     "psr-4": {
-      "atas-ssg\\github.com\\": ""
     }
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "/Users/ata/projects/ssg-system-php"
-    }
-  ],
   "require": {
-    "league/commonmark": "^2.4",
-    "symfony/yaml": "^5.4",
-    "ext-json": "*",
-    "atas/ssg-system-php": "*"
+    "atas/ssg-system-php": "dev-main"
   },
   "config": {
     "platform": {
