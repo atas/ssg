@@ -1,7 +1,11 @@
 # Ata's SSG - A PHP-based Vanilla-HTML Static Site Generator for GitHub Pages
 
-Harness the power of simple PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to 
-juggle complex frameworks or master new templating languages. Simply clone, configure, and deploy!
+* No frameworks. 
+* No templating.
+* No plugins.
+* Just very basic PHP and HTML.
+
+Simply clone, configure, and deploy!
 
 ## Demo - Examples
 * This repo's CI deploys to: https://ssg-test.atasasmaz.com  
@@ -13,7 +17,9 @@ juggle complex frameworks or master new templating languages. Simply clone, conf
 2. `cd` into project dir, run `$ composer update`
 3. Run `$ make dev-server` (needs docker)  
    Your local php site will be running at **http://localhost:8001**
-4. Add your markdown pages and posts to `./pages` and `./posts`, or .php files anywhere and commit & push to a new repo.
+4. Add your markdown pages and posts to `./pages` and `./posts`, or .php files anywhere and commit & push to a new 
+   repo.  
+   * _Ensure `.github` dir from here is included in your new repo._
 * Your site will be alive on GitHub Pages!
 
 🔴 **IMPORTANT: Your repo name** should be `github-username.github.io` if you want to use GitHub Pages subdomain. To 
