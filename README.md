@@ -62,8 +62,8 @@ to Visualize your changes locally by just refreshing the page without a build pr
 
 ## Having custom PHP files to HTML
 
-You can create any .php at root or any sub-dir. `./system` and `./layout` directories,
-`post.php` and `page.php` are excluded from individual PHP to HTML generation.
+You can create any .php at root or any sub-dir. `./layout`, `post.php` and `page.php` are excluded from individual 
+PHP to HTML generation.
 
 `./my-custom.php` will be `yoursite.com/my-custom`  
 `./my-custom-dir/my-custom.php` will be `yoursite.com/my-custom-dir/my-custom`
