@@ -3,6 +3,10 @@
 Harness the power of simple PHP to create static sites seamlessly for GitHub Pages. With Ata's SSG, there's no need to 
 juggle complex frameworks or master new templating languages. Simply clone, configure, and deploy!
 
+## Demo - Examples
+* This repo's CI deploys to: https://ssg-test.atasasmaz.com  
+* Production example: https://www.atasasmaz.com
+
 ## Quick Start
 
 1. Clone the repo
@@ -17,16 +21,12 @@ use a **Custom Domain**, check my docs for [GITHUB PAGES](GITHUB-PAGES.md).
 
 ## Configuring GitHub Pages
 
-Please see my docs for [GITHUB PAGES](GITHUB-PAGES.md) for details.
+See [GITHUB PAGES](GITHUB-PAGES.md).
 
 ## Related projects
 * Custom GitHub Action: https://github.com/atas/ssg-html-builder-action
 * Docker image: https://github.com/atas/ssg-builder-image
 * PHP Lib: https://github.com/atas/ssg-system-php
-
-## Demo - Examples
-This repo's CI deploys to: https://ssg-test.atasasmaz.com  
-Production example: https://www.atasasmaz.com
 
 ## Why Ata's SSG?
 
