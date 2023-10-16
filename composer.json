@@ -7,7 +7,7 @@
     }
   },
   "require": {
-    "atas/ssg-system-php": "dev-main"
+    "atas/ssg-system-php": "1.0"
   },
   "config": {
     "platform": {
