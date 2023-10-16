@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a6359153e7504228eef0abddc8a4613",
+    "content-hash": "824e99831ea567ad0d8e1d099ec4731b",
     "packages": [
         {
             "name": "atas/ssg-system-php",
-            "version": "dev-main",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atas/ssg-system-php.git",
+                "reference": "9e4d72e2b3546847779846bdd1b2df2230d31fe5"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/ata/projects/ssg-system-php",
-                "reference": "4e28cdd129a6c7642406aaf6916fd0a630650ae7"
+                "type": "zip",
+                "url": "https://api.github.com/repos/atas/ssg-system-php/zipball/9e4d72e2b3546847779846bdd1b2df2230d31fe5",
+                "reference": "9e4d72e2b3546847779846bdd1b2df2230d31fe5",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -28,14 +34,16 @@
                     "Atas\\SsgSystemPhp\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Ata's SSG System PHP files",
-            "transport-options": {
-                "symlink": false,
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/atas/ssg-system-php/issues",
+                "source": "https://github.com/atas/ssg-system-php/tree/1.0"
+            },
+            "time": "2023-10-16T10:56:54+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2542,9 +2550,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "atas/ssg-system-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
