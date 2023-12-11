@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/atas/ssg-builder:202310152231
+      image: ghcr.io/atas/ssg-builder:202312111157
 
     steps:
       - name: Checkout repository
@@ -47,13 +47,13 @@ jobs:
       - name: Run Ata's SSG HTML Builder
         uses: atas/ssg-html-builder-action@2.2
         with:
-          less_file_path: 'assets/styles/style.less'
+          less_file_path: "assets/styles/style.less"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: 'html'
-          path: 'html'
+          name: "html"
+          path: "html"
 
   deploy:
     environment:
@@ -71,14 +71,14 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: 'html'
-          path: './html'
+          name: "html"
+          path: "./html"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: 'html'
+          path: "html"
 
       - name: Deploy to GitHub Pages
         id: deployment
