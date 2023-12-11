@@ -142,8 +142,11 @@ $processed_meta = $ssg->layout->GetProcessedPageMeta();
             <?php } ?>
         </div>
 
+        <?php if (isset($ssg->config->location) && strlen($ssg->config->location) > 0) { ?>
         <div class="location">
             <img src="/assets/images/location.svg" alt="Location Icon"/>
             <?= $ssg->config->location ?>
         </div>
+        <?php } ?>
+        
         <div class="clear"></div>
