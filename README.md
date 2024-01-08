@@ -1,4 +1,4 @@
-# Ata's SSG - PHP-based Vanilla-HTML Static Site Generator for GitHub Pages
+# Ata's SSG - Simple PHP Static Site Generator for GitHub Pages
 
 - No frameworks.
 - No templating.
