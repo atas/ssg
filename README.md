@@ -42,7 +42,7 @@ See [GITHUB PAGES](GITHUB-PAGES.md).
 - **Basic PHP**: PHP stands as a robust templating and server-side language, eliminating the need to learn new
   templating languages.
 
-- **No Framework**: No learning a new frameworks or application. Familiarity with basic PHP is enough to get started. Just create your own HTML and PHP files.
+- **No Framework**: No learning new frameworks or applications. Familiarity with basic PHP is enough to get started. Just create your own HTML and PHP files.
 
 - **Markdown & Beyond**: Write blog posts or create pages with Markdown. Need more complexity? Create HTML or PHP files.
 
