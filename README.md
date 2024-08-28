@@ -131,3 +131,7 @@ Then create a pull request from `updates-from-upstream` branch to `main` branch 
 I am a fan of continuous scrolling and not numbered pages. We can implement continuous scrolling on the homepage but
 I can't imagine if it can be helpful for sites with less than 100 posts. Even after 100 posts, it should not
 be a big problem for the page to be rendered. I am open for suggestions though.
+
+<!-- Matomo Image Tracker-->
+![Matomo](https://mtm.atasasmaz.com/matomo.php?idsite=8&rec=1&action_name=README)
+<!-- End Matomo -->
