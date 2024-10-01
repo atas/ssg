@@ -16,6 +16,8 @@ Simply clone, configure, and deploy!
 
 1. Clone the repo
 2. `cd` into project dir, run `$ composer update`
+   If you don't have it installed: [Composer](https://getcomposer.org/)
+   You don't need PHP or a web server, it's built in the container image.
 3. Run `$ make dev-server` (needs docker)  
    Your local php site will be running at **http://localhost:8002**
 4. Add your markdown pages and posts to `./pages` and `./posts`, or .php files anywhere and commit & push to a new
